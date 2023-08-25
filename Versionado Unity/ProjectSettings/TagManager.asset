@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Meta
+  - Key
+  - puerta1
+  - enemigo
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Plataforma
+  - Enemigos
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: fondo
+    uniqueID: 2073782627
+    locked: 0
+  - name: mapa
+    uniqueID: 4267618369
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: frente
+    uniqueID: 320363239
+    locked: 0
