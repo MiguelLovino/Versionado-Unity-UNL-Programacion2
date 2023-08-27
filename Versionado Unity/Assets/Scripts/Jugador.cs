@@ -7,8 +7,8 @@ public class Jugador : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] private float vida = 5f;
-
     private bool TieneKeylv1 = false;
+
     public void ModificarVida(float puntos)
     {
         vida += puntos;
@@ -48,10 +48,7 @@ public class Jugador : MonoBehaviour
             Destroy(collision.gameObject);
             Debug.Log("abriste la puerta");
         }
-        if (collision.gameObject.CompareTag("enemigo"))
-        {
-            Destroy(collision.gameObject);
-        }
+       
     }
 
 }

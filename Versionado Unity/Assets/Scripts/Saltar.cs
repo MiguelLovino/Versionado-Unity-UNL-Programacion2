@@ -14,13 +14,16 @@ public class Saltar : MonoBehaviour
     private bool puedoSaltar = true;
     private bool saltando = false;
     public bool puedosaltar2;
+
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
+    private Animator miAnimator;
     
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
+        miAnimator = GetComponent<Animator>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -42,8 +45,9 @@ public class Saltar : MonoBehaviour
         if (!puedoSaltar && !saltando)
         {
             saltando = true;
+            
         }
-       
+        miAnimator.SetBool("enAire", saltando);
     }
 
     // Codigo ejecutado cuando el jugador colisiona con otro objeto
