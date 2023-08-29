@@ -14,16 +14,21 @@ public class Saltar : MonoBehaviour
     private bool puedoSaltar = true;
     private bool saltando = false;
     public bool puedosaltar2;
+    private int saltoMask;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
     private Animator miAnimator;
+    private CircleCollider2D miCircleCollider2D;
     
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
         miAnimator = GetComponent<Animator>();
+        miCircleCollider2D = GetComponent<CircleCollider2D>();
+        saltoMask = LayerMask.GetMask("Piso", "Plataforma");
+
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -47,7 +52,7 @@ public class Saltar : MonoBehaviour
             saltando = true;
             
         }
-        miAnimator.SetBool("enAire", saltando);
+        miAnimator.SetBool("enAire",!EncontancoPisoPlataforma() );
     }
 
     // Codigo ejecutado cuando el jugador colisiona con otro objeto
@@ -56,6 +61,11 @@ public class Saltar : MonoBehaviour
         // controlar la colicion con un tag ("plataforma")
         puedoSaltar = true;
         saltando = false;
+    }
+
+    private bool EncontancoPisoPlataforma()
+    {
+        return miCircleCollider2D.IsTouchingLayers(saltoMask);
     }
 
 }
