@@ -7,8 +7,16 @@ public class Jugador : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] private float vida = 5f;
+    [SerializeField] private AudioClip recibirDañoSFX;
+
+    //referencias
+    private AudioSource miAudioSource;
+
+
+    //items
     private bool TieneKeylv1 = false;
 
+    //metodos
     public void ModificarVida(float puntos)
     {
         vida += puntos;
@@ -24,6 +32,11 @@ public class Jugador : MonoBehaviour
         return vida > 0;
     }
     public bool get_keylv1() { return TieneKeylv1; }
+
+    private void OnEnable()
+    {
+        miAudioSource = GetComponent<AudioSource>();    
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,7 +61,12 @@ public class Jugador : MonoBehaviour
             Destroy(collision.gameObject);
             Debug.Log("abriste la puerta");
         }
-       
+
+        if (collision.gameObject.CompareTag("enemigo"))
+        {
+            miAudioSource.PlayOneShot(recibirDañoSFX);
+        }
+
     }
 
 }

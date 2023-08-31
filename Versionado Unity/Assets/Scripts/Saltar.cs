@@ -8,6 +8,7 @@ public class Saltar : MonoBehaviour
     // Variables a configurar desde el editor
     [Header("Configuracion")]
     [SerializeField] private float fuerzaSalto = 5f;
+    [SerializeField] private AudioClip saltarSFX;
 
 
     // Variables de uso interno en el script
@@ -20,6 +21,7 @@ public class Saltar : MonoBehaviour
     private Rigidbody2D miRigidbody2D;
     private Animator miAnimator;
     private CircleCollider2D miCircleCollider2D;
+    private AudioSource miAudioSource;
     
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
@@ -28,7 +30,7 @@ public class Saltar : MonoBehaviour
         miAnimator = GetComponent<Animator>();
         miCircleCollider2D = GetComponent<CircleCollider2D>();
         saltoMask = LayerMask.GetMask("Piso", "Plataforma");
-
+        miAudioSource = GetComponent<AudioSource>();    
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -40,6 +42,8 @@ public class Saltar : MonoBehaviour
 
             miRigidbody2D.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
             puedoSaltar = false;
+            if(miAudioSource.isPlaying) { return;}
+            miAudioSource.PlayOneShot(saltarSFX);
 
         }
 
