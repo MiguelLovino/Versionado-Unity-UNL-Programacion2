@@ -8,13 +8,13 @@ public class Jugador : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] private float vida = 5f;
     [SerializeField] private AudioClip recibirDañoSFX;
-
+    
     //referencias
     private AudioSource miAudioSource;
 
-
     //items
     private bool TieneKeylv1 = false;
+
 
     //metodos
     public void ModificarVida(float puntos)
@@ -22,6 +22,7 @@ public class Jugador : MonoBehaviour
         vida += puntos;
         Debug.Log(EstasVivo());
     }
+    public float Get_vida() { return vida; }
     public string VidaActual()
     {
         return vida.ToString();

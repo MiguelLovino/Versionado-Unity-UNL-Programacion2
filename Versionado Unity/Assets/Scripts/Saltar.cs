@@ -9,7 +9,7 @@ public class Saltar : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] private float fuerzaSalto = 5f;
     [SerializeField] private AudioClip saltarSFX;
-
+    
 
     // Variables de uso interno en el script
     private bool puedoSaltar = true;
@@ -65,6 +65,8 @@ public class Saltar : MonoBehaviour
         // controlar la colicion con un tag ("plataforma")
         puedoSaltar = true;
         saltando = false;
+
+        
     }
 
     private bool EncontancoPisoPlataforma()
