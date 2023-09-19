@@ -6,6 +6,15 @@ public class Curar : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] float puntos = 1f;
+    [SerializeField] private AudioClip HealUpSFX;
+
+    //referencia
+    private AudioSource miAudioSource;
+
+    private void OnEnable()
+    {
+        miAudioSource = GetComponent<AudioSource>();
+    }
 
     private void OnParticleCollision(GameObject other)
     {
@@ -14,7 +23,8 @@ public class Curar : MonoBehaviour
             Jugador jugador = other.GetComponent<Jugador>();
             if (jugador.Get_vida() >= 3) { return; }
             jugador.ModificarVida(puntos);
-            Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual()); 
+            Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual());
+            miAudioSource.PlayOneShot(HealUpSFX);
         }
     }
 }

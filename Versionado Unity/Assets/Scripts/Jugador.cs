@@ -17,6 +17,7 @@ public class Jugador : MonoBehaviour
 
 
     //metodos
+    public void Dar_llave() { TieneKeylv1 = true; }
     public void ModificarVida(float puntos)
     {
         vida += puntos;
@@ -45,29 +46,13 @@ public class Jugador : MonoBehaviour
         { 
             Debug.Log("GANASTE");
         }
-        if (collision.gameObject.CompareTag("Key"))
-        {
-            Debug.Log("Juntaste la llave de la puerta");
-            //destruyo el objeto
-            Destroy(collision.gameObject);
-            //obtengo la llave
-            TieneKeylv1 = true;
-        }
-       
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("puerta1") && get_keylv1())
-        {
-            Destroy(collision.gameObject);
-            Debug.Log("abriste la puerta");
-        }
-
         if (collision.gameObject.CompareTag("enemigo"))
         {
             miAudioSource.PlayOneShot(recibirDañoSFX);
         }
-
     }
 
     private void Update()
