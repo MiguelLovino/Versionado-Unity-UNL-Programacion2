@@ -70,4 +70,9 @@ public class Jugador : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (vida <= 0) { Debug.Log("GameOver"); Destroy(gameObject); }
+    }
+
 }

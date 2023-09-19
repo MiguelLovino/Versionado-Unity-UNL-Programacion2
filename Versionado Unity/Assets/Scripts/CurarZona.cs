@@ -14,7 +14,7 @@ public class Curar : MonoBehaviour
             Jugador jugador = other.GetComponent<Jugador>();
             if (jugador.Get_vida() >= 3) { return; }
             jugador.ModificarVida(puntos);
-            Debug.Log(" PUNTOS DE DAÑO REALIZADOS AL JUGADOR " + puntos); 
+            Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual()); 
         }
     }
 }
