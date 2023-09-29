@@ -6,9 +6,9 @@ using UnityEngine;
 public class Jugador : MonoBehaviour
 {
     [Header("Configuracion")]
-    [SerializeField] private float vida = 5f;
+    [SerializeField] private float vida = 3f;
     [SerializeField] private AudioClip recibirDañoSFX;
-    
+    private bool vidallena;
     //referencias
     private AudioSource miAudioSource;
 
@@ -17,6 +17,7 @@ public class Jugador : MonoBehaviour
 
 
     //metodos
+    public bool Get_vidallena() { return vidallena; }
     public void Dar_llave() { TieneKeylv1 = true; }
     public void ModificarVida(float puntos)
     {
@@ -57,7 +58,12 @@ public class Jugador : MonoBehaviour
 
     private void Update()
     {
+        //destruyo al jugador si la vida llega a 0
         if (vida <= 0) { Debug.Log("GameOver"); Destroy(gameObject); }
+
+        //actualizo el estado de la vida
+        if (vida == 3) { vidallena = true; } else { vidallena = false; }
+
     }
 
 }

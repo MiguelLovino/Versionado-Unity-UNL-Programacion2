@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1557880554514943741, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
       propertyPath: m_Name
-      value: enemigo 3 Variant
+      value: enemigo 3 animado
       objectReference: {fileID: 0}
     - target: {fileID: 3073784317555701582, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50,6 +50,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3073784317555701582, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166401941013244616, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166401941013244616, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
+      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
