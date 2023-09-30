@@ -7,7 +7,8 @@ public class GeneradorDiaNoche : MonoBehaviour
 
     [SerializeField] private SpriteRenderer fondo;
     [SerializeField] private Color colorNoche;
-    [SerializeField] private float segundos;
+
+    [SerializeField][Range(1, 128)] private int duracionDia;
 
     private Color colorDia;
 
@@ -17,27 +18,48 @@ public class GeneradorDiaNoche : MonoBehaviour
     {
         //obtengo el color de la camara
         colorDia = fondo.color;
-        InvokeRepeating(nameof(CambiarColor), segundos,segundos);
+
+         StartCoroutine(CambiarColor(duracionDia));
 
     }
 
-    void CambiarColor()
+    IEnumerator CambiarColor(float tiempo)
     {
-        //si es de dia, cambio a noche
-        if (fondo.color == colorDia)
-        {
-            fondo.color = colorNoche;
-        }
-        else
-        {
-            fondo.color = colorDia;
-        }   
+        //cambio el color del fondo, si es de dia, lo cambia a noche.
+        Color colorDestinoFondo = fondo.color == colorDia ? colorNoche : colorDia;
+        //por el momento no aplico luz.
 
+        float duracionCiclo = tiempo * 0.6f;
+
+        float duracionCambio = tiempo * 0.4f;
+
+       while (true)
+        { 
+
+            yield return new WaitForSeconds(duracionCiclo);
+
+            float tiempoTranscurrido = 0;
+
+            while (tiempoTranscurrido < duracionCambio)
+            {
+                tiempoTranscurrido += Time.deltaTime;
+                float t = tiempoTranscurrido / duracionCambio;
+
+                float smothT = Mathf.SmoothStep(0f, 1f, t);
+
+                fondo.color = Color.Lerp(fondo.color, colorDestinoFondo, smothT);
+                yield return null;
+
+            }
+
+            colorDestinoFondo = fondo.color == colorDia ? colorNoche : colorDia;
+        }
+   
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+       
     }
 }
