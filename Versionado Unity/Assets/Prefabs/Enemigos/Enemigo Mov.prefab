@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntos: 1
+  DestruirObjeto: 1
 --- !u!82 &8881299880880783295
 AudioSource:
   m_ObjectHideFlags: 0

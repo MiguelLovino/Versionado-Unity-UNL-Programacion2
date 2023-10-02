@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7582829793281393085, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
+      propertyPath: DestruirObjeto
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9166401941013244616, guid: 33dc53b8245dc7c4286704ca9dcfa76d, type: 3}
       propertyPath: m_BodyType
       value: 0

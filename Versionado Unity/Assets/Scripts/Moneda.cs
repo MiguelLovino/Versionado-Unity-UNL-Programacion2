@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrampaPincho : MonoBehaviour
+public class Moneda : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -10,18 +10,16 @@ public class TrampaPincho : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Se destruye al tocar el piso.
-        if (collision.gameObject.CompareTag("Piso"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

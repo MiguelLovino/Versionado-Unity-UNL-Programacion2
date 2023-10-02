@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Curar : MonoBehaviour
@@ -10,6 +11,9 @@ public class Curar : MonoBehaviour
 
     //referencia
     private AudioSource miAudioSource;
+
+   
+
 
     private void OnEnable()
     {
@@ -25,6 +29,19 @@ public class Curar : MonoBehaviour
             jugador.ModificarVida(puntos);
             Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual());
             miAudioSource.PlayOneShot(HealUpSFX);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Jugador jugador = collision.gameObject.GetComponent<Jugador>();
+            if (jugador.Get_vida() >= 3) { Destroy(gameObject);  return; }
+            jugador.ModificarVida(puntos);
+            Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual());
+            miAudioSource.PlayOneShot(HealUpSFX);
+            Destroy(gameObject);
         }
     }
 }

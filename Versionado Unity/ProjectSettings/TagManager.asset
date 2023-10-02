@@ -8,6 +8,7 @@ TagManager:
   - Key
   - puerta1
   - enemigo
+  - Piso
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class Herir : MonoBehaviour
     // Variables a configurar desde el editor
     [Header("Configuracion")]
     [SerializeField] float puntos = 1f;
+    [SerializeField] bool DestruirObjeto = true;
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,7 +16,10 @@ public class Herir : MonoBehaviour
             Jugador jugador = collision.gameObject.GetComponent<Jugador>();
             jugador.ModificarVida(-puntos);
             Debug.Log("Recibes " + puntos + " de danio." + "Vida restante: " + jugador.VidaActual());
-            Destroy(gameObject);
+            if (DestruirObjeto) 
+            {
+                Destroy(gameObject);
+            }
         }
        
     }
