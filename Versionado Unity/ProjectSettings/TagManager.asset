@@ -9,6 +9,7 @@ TagManager:
   - puerta1
   - enemigo
   - Piso
+  - coleccionable
   layers:
   - Default
   - TransparentFX
