@@ -5,13 +5,8 @@ using UnityEngine;
 public class Saltar : MonoBehaviour
 {
 
-    // Variables a configurar desde el editor
-    [Header("Configuracion")]
-    [SerializeField] private float fuerzaSalto = 5f;
-    [SerializeField] private AudioClip saltarSFX;
-    
-
     // Variables de uso interno en el script
+    private Jugador jugador;
     private bool puedoSaltar = true;
     private bool saltando = false;
     public bool puedosaltar2;
@@ -30,7 +25,8 @@ public class Saltar : MonoBehaviour
         miAnimator = GetComponent<Animator>();
         miCircleCollider2D = GetComponent<CircleCollider2D>();
         saltoMask = LayerMask.GetMask("Piso", "Plataforma");
-        miAudioSource = GetComponent<AudioSource>();    
+        miAudioSource = GetComponent<AudioSource>(); 
+        jugador = GetComponent<Jugador>();  
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -39,11 +35,11 @@ public class Saltar : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
         {
-
-            miRigidbody2D.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+            
+            miRigidbody2D.AddForce(Vector2.up * jugador.PerfilJugador.FuerzaSalto, ForceMode2D.Impulse);
             puedoSaltar = false;
             if(miAudioSource.isPlaying) { return;}
-            miAudioSource.PlayOneShot(saltarSFX);
+            miAudioSource.PlayOneShot(jugador.PerfilJugador.SaltarSFX);
 
         }
 

@@ -39,7 +39,7 @@ public class ColeccionarItems : MonoBehaviour
         }
 
         return;
-
+         
     }
 
     // Start is called before the first frame update

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1c6f94b1d13384792fbe59443d41d8, type: 3}
+  m_Name: NuevoPerfilJugador
+  m_EditorClassIdentifier: 
+  vida: 3
+  fuerzaSalto: 5
+  velocidad: 5
+  recibirDanioSFX: {fileID: 8300000, guid: aa52841907f8f2b469564a63e53881c7, type: 3}
+  saltarSFX: {fileID: 8300000, guid: 55c9f91b11dfee54e9d291f5946f3730, type: 3}

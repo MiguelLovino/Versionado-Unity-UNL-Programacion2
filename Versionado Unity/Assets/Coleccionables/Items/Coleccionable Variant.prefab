@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coleccionable Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8969015399626900471, guid: ce8e8e94f4f0f234b8d99aae542407da, type: 3}
+      propertyPath: coleccionableSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 7fbe7e4c98be37e48bd6519cc783a258, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
