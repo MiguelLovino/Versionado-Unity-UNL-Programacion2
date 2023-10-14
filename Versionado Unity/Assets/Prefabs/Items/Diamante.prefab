@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6947154996175780472}
   - component: {fileID: 4589741644462213994}
   - component: {fileID: -1075328490289507213}
+  - component: {fileID: -6166801290710972545}
   m_Layer: 0
   m_Name: Diamante
   m_TagString: coleccionable
@@ -181,3 +182,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miAudioclip: {fileID: 8300000, guid: 7fbe7e4c98be37e48bd6519cc783a258, type: 3}
+--- !u!114 &-6166801290710972545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678482339794714325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097065f461ae38d4da157b69ca74c156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntaje: 50

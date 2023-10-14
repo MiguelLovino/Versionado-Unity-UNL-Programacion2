@@ -12,9 +12,6 @@ public class Curar : MonoBehaviour
     //referencia
     private AudioSource miAudioSource;
 
-   
-
-
     private void OnEnable()
     {
        miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
