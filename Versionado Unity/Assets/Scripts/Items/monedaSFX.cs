@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SonidoItem : MonoBehaviour
+public class monedaSFX : MonoBehaviour
 {
     private AudioSource miAudioSource;
     private ADMSOUND admsound;
@@ -17,7 +17,7 @@ public class SonidoItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //miAudioSource.PlayOneShot();
+            miAudioSource.PlayOneShot(admsound.PerfilSonido.MonedaSFX);
             Debug.Log("CONTROL DE SONIDO");
 
             //si no tiene cuerpo, sale

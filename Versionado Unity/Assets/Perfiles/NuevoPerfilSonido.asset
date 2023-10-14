@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287ba254bf0e46041a3d0336c89aac44, type: 3}
+  m_Name: NuevoPerfilSonido
+  m_EditorClassIdentifier: 
+  monedaSFX: {fileID: 8300000, guid: 3fe6e6f40de2f80449ef69014cabea90, type: 3}
+  corazonSFX: {fileID: 8300000, guid: de96ae15bf2d39446b70b13c44c648f2, type: 3}
+  diamanteSFX: {fileID: 8300000, guid: 7fbe7e4c98be37e48bd6519cc783a258, type: 3}
+  pickLlaveSFX: {fileID: 8300000, guid: ab401b18b53fc9344adb422ee6fe1130, type: 3}
+  openDoorSFX: {fileID: 8300000, guid: 758cb3909ba329b498145bec66890d0b, type: 3}
+  saltarSFX: {fileID: 8300000, guid: 55c9f91b11dfee54e9d291f5946f3730, type: 3}
+  recibirDanioSFX: {fileID: 8300000, guid: aa52841907f8f2b469564a63e53881c7, type: 3}
