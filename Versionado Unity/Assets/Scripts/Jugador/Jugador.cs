@@ -66,7 +66,13 @@ public class Jugador : MonoBehaviour
         if (PerfilJugador.Vida == 3) { vidallena = true; } else { vidallena = false; }
 
         //destruyo al jugador si la vida llega a 0
-        if (PerfilJugador.Vida <= 0) { Debug.Log("GameOver"); Destroy(gameObject); PerfilJugador.Vida = 3; }
+        if (PerfilJugador.Vida <= 0) 
+        {
+            Debug.Log("GameOver");
+            Destroy(gameObject);
+            //reestablesco la vida.
+            PerfilJugador.Vida = 3; 
+        }
 
     }
 

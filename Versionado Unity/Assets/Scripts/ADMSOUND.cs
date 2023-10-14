@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Moneda : MonoBehaviour
+public class ADMSOUND : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] public AudioClip monedaSFX;
+    AudioSource miAudiosource;
+
     void Start()
     {
-        
+        miAudiosource = GetComponent<AudioSource>();
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }
     // Update is called once per frame
     void Update()
     {

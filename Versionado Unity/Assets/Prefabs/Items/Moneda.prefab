@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2675970259967904559}
   - component: {fileID: 898952711633896255}
   - component: {fileID: 4964741297755658919}
-  - component: {fileID: -2997091134137828779}
+  - component: {fileID: 6593000993844700452}
   m_Layer: 0
   m_Name: Moneda
   m_TagString: coleccionable
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-2997091134137828779
+--- !u!114 &6593000993844700452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3838514365210697538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2007f86576dc8d44a830cdbc05a3276, type: 3}
+  m_Script: {fileID: 11500000, guid: d632ea29f2a0c994ca1819dbaac33eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miAudioclip: {fileID: 8300000, guid: 3fe6e6f40de2f80449ef69014cabea90, type: 3}
