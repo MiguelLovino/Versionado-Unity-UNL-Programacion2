@@ -10,7 +10,14 @@ public class Jugador : MonoBehaviour
     
     //obtengo la referencia y les doy acceso a otros scripts
     public PerfilJugador PerfilJugador { get => perfilJugador; }
+
+    private int puntaje;
     
+    public void set_puntaje(int p)
+    {
+        puntaje += p;
+        Debug.Log("el puntaje del jugador es: " +  puntaje);
+    }
    
     private bool vidallena;
     //referencias
@@ -48,7 +55,7 @@ public class Jugador : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Meta"))
         { 
-            Debug.Log("GANASTE");
+            Debug.Log("GANASTE! tu puntaje final es: " + puntaje);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -66,7 +73,13 @@ public class Jugador : MonoBehaviour
         if (PerfilJugador.Vida == 3) { vidallena = true; } else { vidallena = false; }
 
         //destruyo al jugador si la vida llega a 0
-        if (PerfilJugador.Vida <= 0) { Debug.Log("GameOver"); Destroy(gameObject); PerfilJugador.Vida = 3; }
+        if (PerfilJugador.Vida <= 0) 
+        {
+            Debug.Log("GameOver, Puntaje final: " + puntaje);
+            Destroy(gameObject);
+            //reestablesco la vida.
+            PerfilJugador.Vida = 3; 
+        }
 
     }
 

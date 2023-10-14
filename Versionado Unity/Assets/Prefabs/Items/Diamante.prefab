@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6689575374337819717}
   - component: {fileID: 6947154996175780472}
   - component: {fileID: 4589741644462213994}
-  - component: {fileID: -2441874404916568805}
+  - component: {fileID: -6166801290710972545}
+  - component: {fileID: -4351937870406905956}
   m_Layer: 0
   m_Name: Diamante
   m_TagString: coleccionable
@@ -168,7 +169,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-2441874404916568805
+--- !u!114 &-6166801290710972545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,6 +178,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5678482339794714325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2007f86576dc8d44a830cdbc05a3276, type: 3}
+  m_Script: {fileID: 11500000, guid: 097065f461ae38d4da157b69ca74c156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntaje: 50
+--- !u!114 &-4351937870406905956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678482339794714325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaddb3888fdfb724b8cdb409d9c441b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

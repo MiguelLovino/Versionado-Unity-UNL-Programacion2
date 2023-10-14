@@ -12,12 +12,9 @@ public class Curar : MonoBehaviour
     //referencia
     private AudioSource miAudioSource;
 
-   
-
-
     private void OnEnable()
     {
-        miAudioSource = GetComponent<AudioSource>();
+       miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
     }
 
     private void OnParticleCollision(GameObject other)

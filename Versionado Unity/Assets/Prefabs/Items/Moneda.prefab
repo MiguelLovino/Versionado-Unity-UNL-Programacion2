@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2675970259967904559}
   - component: {fileID: 898952711633896255}
   - component: {fileID: 4964741297755658919}
-  - component: {fileID: -2997091134137828779}
+  - component: {fileID: -8194802669014575996}
+  - component: {fileID: 5040196659430589257}
   m_Layer: 0
   m_Name: Moneda
   m_TagString: coleccionable
@@ -149,7 +150,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-2997091134137828779
+--- !u!114 &-8194802669014575996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +159,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3838514365210697538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2007f86576dc8d44a830cdbc05a3276, type: 3}
+  m_Script: {fileID: 11500000, guid: 097065f461ae38d4da157b69ca74c156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntaje: 10
+--- !u!114 &5040196659430589257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838514365210697538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756564f04a8e00b4da7c54d14bae6e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

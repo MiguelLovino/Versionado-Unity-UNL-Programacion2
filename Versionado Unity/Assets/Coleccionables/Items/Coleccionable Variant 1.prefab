@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5038651886524162685, guid: ce8e8e94f4f0f234b8d99aae542407da, type: 3}
+      propertyPath: miAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: de96ae15bf2d39446b70b13c44c648f2, type: 3}
+    - target: {fileID: -5038651886524162685, guid: ce8e8e94f4f0f234b8d99aae542407da, type: 3}
+      propertyPath: miAudioclip
+      value: 
+      objectReference: {fileID: 8300000, guid: de96ae15bf2d39446b70b13c44c648f2, type: 3}
     - target: {fileID: 1688352497038271556, guid: ce8e8e94f4f0f234b8d99aae542407da, type: 3}
       propertyPath: m_Size.x
       value: 0.77487755
@@ -80,7 +88,8 @@ PrefabInstance:
       propertyPath: coleccionableSFX
       value: 
       objectReference: {fileID: 8300000, guid: de96ae15bf2d39446b70b13c44c648f2, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5038651886524162685, guid: ce8e8e94f4f0f234b8d99aae542407da, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
