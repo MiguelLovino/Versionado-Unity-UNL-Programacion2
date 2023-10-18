@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Jugador : MonoBehaviour
 {
@@ -11,12 +12,20 @@ public class Jugador : MonoBehaviour
     //obtengo la referencia y les doy acceso a otros scripts
     public PerfilJugador PerfilJugador { get => perfilJugador; }
 
+    //--- Eventos del jugador ---//
+
+    [SerializeField] private UnityEvent<int> OnLivesChanged;
+    [SerializeField] private UnityEvent<string> OnTextChanged;
+
     private int puntaje;
     
     public void set_puntaje(int p)
     {
         puntaje += p;
         Debug.Log("el puntaje del jugador es: " +  puntaje);
+
+        //actualizo el puntaje cada vez que se modifica el valor
+        OnTextChanged.Invoke("Puntaje: " + puntaje.ToString());
     }
    
     private bool vidallena;
@@ -29,7 +38,7 @@ public class Jugador : MonoBehaviour
     //metodos
     public bool Get_vidallena() { return vidallena; }
     public void Dar_llave() { TieneKeylv1 = true; }
-    public void ModificarVida(float puntos)
+    public void ModificarVida(int puntos)
     {
         PerfilJugador.Vida += puntos;
         Debug.Log(EstasVivo());
@@ -64,9 +73,18 @@ public class Jugador : MonoBehaviour
         {
             
             miAudioSource.PlayOneShot(perfilJugador.RecibirDanioSFX);
+           
         }
     }
 
+    private void Start()
+    {
+        //reestablesco la vida.
+        PerfilJugador.Vida = 3;
+        OnTextChanged.Invoke("Puntaje: " + puntaje.ToString());
+        OnLivesChanged.Invoke(perfilJugador.Vida);
+
+    }
     private void Update()
     {
         //actualizo el estado de la vida
@@ -77,10 +95,15 @@ public class Jugador : MonoBehaviour
         {
             Debug.Log("GameOver, Puntaje final: " + puntaje);
             Destroy(gameObject);
-            //reestablesco la vida.
-            PerfilJugador.Vida = 3; 
         }
-
+        
     }
+
+    public void ActualizarVidaJugadorHUD()
+    {
+        OnLivesChanged.Invoke(perfilJugador.Vida);
+    }
+
+
 
 }

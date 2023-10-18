@@ -7,9 +7,9 @@ public class PerfilJugador : ScriptableObject
 {
     [Header("Configuracion de atributos ")]
     [Tooltip("Vida maxima")]
-    [SerializeField] private float vida;
+    [SerializeField] private int vida;
 
-    public float Vida { get => vida; set => vida = value; }
+    public int Vida { get => vida; set => vida = value; }
 
     [Tooltip("Potencia de salto")]
     [SerializeField] private float fuerzaSalto = 5f;

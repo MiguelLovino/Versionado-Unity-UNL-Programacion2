@@ -6,7 +6,7 @@ using UnityEngine;
 public class Curar : MonoBehaviour
 {
     [Header("Configuracion")]
-    [SerializeField] float puntos = 1f;
+    [SerializeField] int puntos = 1;
     [SerializeField] private AudioClip HealUpSFX;
 
     //referencia
@@ -24,6 +24,7 @@ public class Curar : MonoBehaviour
             Jugador jugador = other.GetComponent<Jugador>();
             if (jugador.Get_vida() >= 3) { return; }
             jugador.ModificarVida(puntos);
+            jugador.ActualizarVidaJugadorHUD();
             Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual());
             miAudioSource.PlayOneShot(HealUpSFX);
         }
