@@ -37,6 +37,7 @@ public class Curar : MonoBehaviour
             Jugador jugador = collision.gameObject.GetComponent<Jugador>();
             if (jugador.Get_vida() >= 3) { Destroy(gameObject);  return; }
             jugador.ModificarVida(puntos);
+            jugador.ActualizarVidaJugadorHUD();
             Debug.Log("Te curas " + puntos + " de vida, tu vida actual es de: " + jugador.VidaActual());
             miAudioSource.PlayOneShot(HealUpSFX);
             Destroy(gameObject);

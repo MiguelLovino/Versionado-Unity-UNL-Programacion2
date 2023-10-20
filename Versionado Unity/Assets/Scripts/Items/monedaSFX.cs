@@ -19,11 +19,15 @@ public class monedaSFX : MonoBehaviour
         {
             miAudioSource.PlayOneShot(admsound.PerfilSonido.MonedaSFX);
             Debug.Log("CONTROL DE SONIDO");
+        }
+    }
 
-            //si no tiene cuerpo, sale
-            if (gameObject.GetComponent<Rigidbody2D>() == null) { return; }
-            //de lo contrario, lo destruye
-            Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            miAudioSource.PlayOneShot(admsound.PerfilSonido.MonedaSFX);
+            Debug.Log("CONTROL DE SONIDO");
         }
     }
 }

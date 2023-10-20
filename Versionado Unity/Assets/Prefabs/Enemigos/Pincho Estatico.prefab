@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2747285839546605636, guid: b4109d0d9674a3541b6171644889d7fb, type: 3}
       propertyPath: puntos
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2747285839546605636, guid: b4109d0d9674a3541b6171644889d7fb, type: 3}
       propertyPath: DestruirObjeto

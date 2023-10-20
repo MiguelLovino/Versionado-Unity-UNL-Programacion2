@@ -6,11 +6,12 @@ using UnityEngine;
 public class JuntarLlave : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private AudioClip juntarLLaveSFX;
-    private AudioSource miAudiosource;
+    private ADMSOUND admsound;
+    private AudioSource miAudioSource;
     void Start()
     {
-        miAudiosource = GetComponent<AudioSource>();
+        miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
+        admsound = GameObject.Find("AdministradorSonidos").GetComponent<ADMSOUND>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class JuntarLlave : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
 
-            miAudiosource.PlayOneShot(juntarLLaveSFX);
+            miAudioSource.PlayOneShot(admsound.PerfilSonido.PickLlave);
 
             Debug.Log("Juntaste la llave de la puerta");
 

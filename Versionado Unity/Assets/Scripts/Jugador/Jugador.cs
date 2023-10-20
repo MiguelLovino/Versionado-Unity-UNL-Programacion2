@@ -93,8 +93,9 @@ public class Jugador : MonoBehaviour
         //destruyo al jugador si la vida llega a 0
         if (PerfilJugador.Vida <= 0) 
         {
+           
             Debug.Log("GameOver, Puntaje final: " + puntaje);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         
     }

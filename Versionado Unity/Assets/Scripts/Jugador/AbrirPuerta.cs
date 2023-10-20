@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class AbrirPuerta : MonoBehaviour
 {
-    [SerializeField] private AudioClip abrirPuertaSFX;
 
-    private AudioSource miAudiosource;
+    private ADMSOUND admsound;
+    private AudioSource miAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        miAudiosource = GetComponent<AudioSource>();
+        miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
+        admsound = GameObject.Find("AdministradorSonidos").GetComponent<ADMSOUND>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class AbrirPuerta : MonoBehaviour
         {
             Debug.Log("abriste la puerta");
 
-            miAudiosource.PlayOneShot(abrirPuertaSFX);
+            miAudioSource.PlayOneShot(admsound.PerfilSonido.OpenDoor);
 
             Destroy(collision.gameObject);
         }

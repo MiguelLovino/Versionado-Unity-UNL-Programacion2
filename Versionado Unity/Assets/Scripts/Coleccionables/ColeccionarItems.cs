@@ -42,6 +42,29 @@ public class ColeccionarItems : MonoBehaviour
          
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("coleccionable"))
+        {
+
+
+            //obtengo la refencia del objeto que coliciona.
+            GameObject nuevoItem = collision.gameObject;
+
+            //desactivo el nuevo objeto (no se dibuja en pantalla)
+            nuevoItem.SetActive(false);
+
+            //lo agrego a la lista.
+            coleccionar.Add(nuevoItem);
+
+            //lo cambio de padre.
+            nuevoItem.transform.SetParent(invantarioJugador.transform);
+
+        }
+
+        return;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -16,6 +16,15 @@ public class Itempuntaje : MonoBehaviour
             jugador.set_puntaje(puntaje);
         }
     }
+ 
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Jugador jugador = GameObject.Find("Jugador").gameObject.GetComponent<Jugador>();
 
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            jugador.set_puntaje(puntaje);
+        }
+    }
 }
