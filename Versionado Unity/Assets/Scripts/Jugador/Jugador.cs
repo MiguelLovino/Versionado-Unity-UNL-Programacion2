@@ -16,17 +16,6 @@ public class Jugador : MonoBehaviour
 
     [SerializeField] private UnityEvent<int> OnLivesChanged;
     [SerializeField] private UnityEvent<string> OnTextChanged;
-
-    private int puntaje;
-    
-    public void set_puntaje(int p)
-    {
-        puntaje += p;
-        Debug.Log("el puntaje del jugador es: " +  puntaje);
-
-        //actualizo el puntaje cada vez que se modifica el valor
-        OnTextChanged.Invoke("Puntaje: " + puntaje.ToString());
-    }
    
     private bool vidallena;
     //referencias
@@ -64,7 +53,8 @@ public class Jugador : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Meta"))
         { 
-            Debug.Log("GANASTE! tu puntaje final es: " + puntaje);
+            Debug.Log("GANASTE! tu puntaje final es: " + GameManager.Instance.GetScore().ToString());
+            ApplicationManager.instance.GotoNextScene();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,7 +71,7 @@ public class Jugador : MonoBehaviour
     {
         //reestablesco la vida.
         PerfilJugador.Vida = 3;
-        OnTextChanged.Invoke("Puntaje: " + puntaje.ToString());
+        OnTextChanged.Invoke("Puntaje: " + GameManager.Instance.GetScore().ToString());
         OnLivesChanged.Invoke(perfilJugador.Vida);
 
     }
@@ -94,15 +84,21 @@ public class Jugador : MonoBehaviour
         if (PerfilJugador.Vida <= 0) 
         {
            
-            Debug.Log("GameOver, Puntaje final: " + puntaje);
+            Debug.Log("GameOver, Puntaje final: " + GameManager.Instance.GetScore().ToString());
             gameObject.SetActive(false);
+            ApplicationManager.instance.GotoPreviousScene();
+            GameManager.Instance.ResetScore();
         }
-        
     }
 
     public void ActualizarVidaJugadorHUD()
     {
         OnLivesChanged.Invoke(perfilJugador.Vida);
+    }
+    
+    public void ActualizarPuntaje()
+    {
+        OnTextChanged.Invoke("Puntaje: " + GameManager.Instance.GetScore().ToString());
     }
 
 

@@ -13,7 +13,8 @@ public class Itempuntaje : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            jugador.set_puntaje(puntaje);
+            GameManager.Instance.AddScore(puntaje);
+            jugador.ActualizarPuntaje();
         }
     }
  
@@ -24,7 +25,8 @@ public class Itempuntaje : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            jugador.set_puntaje(puntaje);
+            GameManager.Instance.AddScore(puntaje);
+            jugador.ActualizarPuntaje();
         }
     }
 }
