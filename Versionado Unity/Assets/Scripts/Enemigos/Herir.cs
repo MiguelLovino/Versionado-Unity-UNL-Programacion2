@@ -8,6 +8,7 @@ public class Herir : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] int puntos;
     [SerializeField] bool DestruirObjeto = true;
+    [SerializeField] bool desactivarObjeto = false;
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,11 +18,9 @@ public class Herir : MonoBehaviour
             jugador.ModificarVida(-puntos);
             jugador.ActualizarVidaJugadorHUD();
             Debug.Log("Recibes " + puntos + " de danio." + "Vida restante: " + jugador.VidaActual());
-            
-            if (DestruirObjeto) 
-            {
-                Destroy(gameObject);
-            }
+            if (desactivarObjeto) { gameObject.SetActive(false); return; }
+            if (DestruirObjeto) { Destroy(gameObject); }
+           
         }
        
     }

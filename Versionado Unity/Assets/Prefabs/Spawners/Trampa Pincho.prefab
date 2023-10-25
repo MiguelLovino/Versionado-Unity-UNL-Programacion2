@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8714183445807552575}
   - component: {fileID: 8048229254934059414}
-  - component: {fileID: 6787915052425755259}
+  - component: {fileID: -6829828566821383514}
+  - component: {fileID: 8833587587988368071}
   - component: {fileID: -1474548222633909476}
   m_Layer: 0
   m_Name: Trampa Pincho
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6787915052425755259
+--- !u!114 &-6829828566821383514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,12 +96,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3560056424411027160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a7c0ba1dda5bb48b9bd437f146d700, type: 3}
+  m_Script: {fileID: 11500000, guid: e5afd688bbb67a54cac6c116f3d63d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjetoPrefab: {fileID: 1583353271240739864, guid: b4109d0d9674a3541b6171644889d7fb, type: 3}
   tiempoEspera: 0
   tiempoIntervalo: 1
+--- !u!114 &8833587587988368071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560056424411027160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310c80f05b450b548b2d74a91380713d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 1583353271240739864, guid: b4109d0d9674a3541b6171644889d7fb, type: 3}
+  poolSize: 2
 --- !u!61 &-1474548222633909476
 BoxCollider2D:
   m_ObjectHideFlags: 0

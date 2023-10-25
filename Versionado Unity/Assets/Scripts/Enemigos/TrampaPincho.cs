@@ -21,7 +21,7 @@ public class TrampaPincho : MonoBehaviour
         // Se destruye al tocar el piso.
         if (collision.gameObject.CompareTag("Piso"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

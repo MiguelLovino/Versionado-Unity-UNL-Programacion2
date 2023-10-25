@@ -190,4 +190,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntos: 1
-  DestruirObjeto: 1
+  DestruirObjeto: 0
+  desactivarObjeto: 1
