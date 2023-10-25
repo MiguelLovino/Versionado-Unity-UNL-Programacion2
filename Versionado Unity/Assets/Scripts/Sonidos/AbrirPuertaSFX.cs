@@ -5,14 +5,14 @@ using UnityEngine;
 public class AbrirPuerta : MonoBehaviour
 {
 
-    private ADMSOUND admsound;
+    private AdmSound admsound;
     private AudioSource miAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
-        admsound = GameObject.Find("AdministradorSonidos").GetComponent<ADMSOUND>();
+        admsound = GameObject.Find("AdministradorSonidos").GetComponent<AdmSound>();
     }
 
     // Update is called once per frame

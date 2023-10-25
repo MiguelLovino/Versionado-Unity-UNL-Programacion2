@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ADMSOUND : MonoBehaviour
+public class AdmSound : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private PerfilSonido perfilSonido;

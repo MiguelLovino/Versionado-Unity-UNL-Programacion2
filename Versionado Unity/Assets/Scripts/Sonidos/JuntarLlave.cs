@@ -6,12 +6,12 @@ using UnityEngine;
 public class JuntarLlave : MonoBehaviour
 {
     // Start is called before the first frame update
-    private ADMSOUND admsound;
+    private AdmSound admsound;
     private AudioSource miAudioSource;
     void Start()
     {
         miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
-        admsound = GameObject.Find("AdministradorSonidos").GetComponent<ADMSOUND>();
+        admsound = GameObject.Find("AdministradorSonidos").GetComponent<AdmSound>();
     }
 
     // Update is called once per frame

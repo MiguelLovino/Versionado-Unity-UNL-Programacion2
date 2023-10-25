@@ -2,32 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class diamanteSFX : MonoBehaviour
+public class SonidoItem : MonoBehaviour
 {
     private AudioSource miAudioSource;
-    private ADMSOUND admsound;
+    private AdmSound admsound;
     void Start()
     {
         //busco el objeto "administrador de sonidos"
         miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
-        admsound = GameObject.Find("AdministradorSonidos").GetComponent<ADMSOUND>();
+        admsound = GameObject.Find("AdministradorSonidos").GetComponent<AdmSound>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            miAudioSource.PlayOneShot(admsound.PerfilSonido.DiamanteSFX);
+            //miAudioSource.PlayOneShot();
             Debug.Log("CONTROL DE SONIDO");
-        }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            miAudioSource.PlayOneShot(admsound.PerfilSonido.DiamanteSFX);
-            Debug.Log("CONTROL DE SONIDO");
+            //si no tiene cuerpo, sale
+            if (gameObject.GetComponent<Rigidbody2D>() == null) { return; }
+            //de lo contrario, lo destruye
+            Destroy(gameObject);
         }
     }
 }

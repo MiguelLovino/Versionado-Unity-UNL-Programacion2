@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class monedaSFX : MonoBehaviour
+public class diamanteSFX : MonoBehaviour
 {
     private AudioSource miAudioSource;
-    private ADMSOUND admsound;
+    private AdmSound admsound;
     void Start()
     {
         //busco el objeto "administrador de sonidos"
         miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
-        admsound = GameObject.Find("AdministradorSonidos").GetComponent<ADMSOUND>();
+        admsound = GameObject.Find("AdministradorSonidos").GetComponent<AdmSound>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            miAudioSource.PlayOneShot(admsound.PerfilSonido.MonedaSFX);
+            miAudioSource.PlayOneShot(admsound.PerfilSonido.DiamanteSFX);
             Debug.Log("CONTROL DE SONIDO");
         }
     }
@@ -26,7 +26,7 @@ public class monedaSFX : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            miAudioSource.PlayOneShot(admsound.PerfilSonido.MonedaSFX);
+            miAudioSource.PlayOneShot(admsound.PerfilSonido.DiamanteSFX);
             Debug.Log("CONTROL DE SONIDO");
         }
     }

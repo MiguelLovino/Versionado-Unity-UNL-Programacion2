@@ -26,5 +26,10 @@ public class PerfilSonido : ScriptableObject
     [SerializeField] private AudioClip recibirDanioSFX;
     public AudioClip RecibirdanioSFX { get => RecibirdanioSFX; }
 
+    [Header("Sonidos UI")]
+    [Header("MainScreen")]
+    [SerializeField] private AudioClip jugarSFX;
+    public AudioClip JugarSFX { get => jugarSFX; set => jugarSFX = value; }
+
 
 }
