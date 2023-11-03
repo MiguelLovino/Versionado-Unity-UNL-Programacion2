@@ -22,6 +22,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        //suscripcion al evento
+        GameEvents.OnPause += Pausar;
+        GameEvents.OnResume += Reanudar;
+    }
+
+    private void OnDisable()
+    {
+        //desuscripcion al evento
+        GameEvents.OnPause -= Pausar;
+        GameEvents.OnResume -= Reanudar;
+        
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if(Time.timeScale != 0)
+            {
+                GameEvents.TriggerPause();
+            }
+            else
+            {
+                GameEvents.TriggerResume();
+            }
+        }
+    }
+
+    private void Pausar()
+    {
+        Time.timeScale = 0;
+
+    }
+    private void Reanudar()
+    {
+        Time.timeScale = 1;
+    }
     public void AddScore(int points)
     {
         score += points;
