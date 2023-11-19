@@ -6,11 +6,21 @@ public class Saltar : MonoBehaviour
 {
 
     // Variables de uso interno en el script
+    [SerializeField] float rayDistance;
+    [SerializeField] LayerMask groundLayer;
+
+    [SerializeField] float coyoteConfig = 0.1f;
+
+    [SerializeField] float auxForce = 1f;
+    [SerializeField] float auxForceMaxReset = 1f;
+    [SerializeField] float jumpForceIncreaseSpeed = 2f;
+
     private Jugador jugador;
     private bool puedoSaltar = true;
     private bool saltando = false;
-    public bool puedosaltar2;
+    //public bool puedosaltar2;
     private int saltoMask;
+    private float coyoteTime;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
@@ -32,12 +42,25 @@ public class Saltar : MonoBehaviour
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
     void Update()
     {
+        puedoSaltar = ConectadoAlSuelo();
 
-        if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+        if (puedoSaltar)
         {
-            
-            miRigidbody2D.AddForce(Vector2.up * jugador.PerfilJugador.FuerzaSalto, ForceMode2D.Impulse);
-            puedoSaltar = false;
+            coyoteTime = Time.time + coyoteConfig;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && ConectadoAlSuelo())
+        {
+            auxForce = Mathf.Min(auxForce + jumpForceIncreaseSpeed * Time.deltaTime, jugador.PerfilJugador.FuerzaSalto);
+            Debug.Log(auxForce);
+
+        }
+
+
+        if (Input.GetKeyUp(KeyCode.Space) && (Time.time <= coyoteTime))
+        {
+            saltando = true;
+
             if(miAudioSource.isPlaying) { return;}
             miAudioSource.PlayOneShot(jugador.PerfilJugador.SaltarSFX);
 
@@ -47,9 +70,11 @@ public class Saltar : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (!puedoSaltar && !saltando)
+        if (saltando)
         {
-            saltando = true;
+            miRigidbody2D.AddForce(Vector2.up * Mathf.Min(jugador.PerfilJugador.FuerzaSalto, auxForce), ForceMode2D.Impulse);
+            auxForce = auxForceMaxReset;
+            saltando = false;
             
         }
         miAnimator.SetBool("enAire",!EncontancoPisoPlataforma() );
@@ -59,9 +84,9 @@ public class Saltar : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // controlar la colicion con un tag ("plataforma")
-        puedoSaltar = true;
-        saltando = false;
-
+       
+       
+        //ruido de caida.
         
     }
 
@@ -70,4 +95,15 @@ public class Saltar : MonoBehaviour
         return miCircleCollider2D.IsTouchingLayers(saltoMask);
     }
 
+    private bool ConectadoAlSuelo()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, groundLayer);
+        return hit.collider != null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector2.down * rayDistance);
+    }
 }
