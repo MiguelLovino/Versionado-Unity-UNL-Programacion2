@@ -5,9 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {  get; private set; }
-
     private int score;
 
+    private void Start()
+    {
+        
+    }
     private void Awake()
     {
         //Para que exista 1 solo singleto se hace la siguiente validacion.
@@ -22,6 +25,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if(Time.timeScale != 0)
+            {
+                GameEvents.TriggerPause();
+            }
+            else
+            {
+                GameEvents.TriggerResume(); 
+            }
+        }
+    }
     private void OnEnable()
     {
         //suscripcion al evento
@@ -35,21 +52,6 @@ public class GameManager : MonoBehaviour
         GameEvents.OnPause -= Pausar;
         GameEvents.OnResume -= Reanudar;
         
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            if(Time.timeScale != 0)
-            {
-                GameEvents.TriggerPause();
-            }
-            else
-            {
-                GameEvents.TriggerResume();
-            }
-        }
     }
 
     private void Pausar()

@@ -8,7 +8,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] TextMeshProUGUI miTexto;
     [SerializeField] GameObject iconoVida;
     [SerializeField] GameObject contenedorVida;
-
+    [SerializeField] GameObject miMenu;
 
     public void ActualizarTextoHUD(string nuevoTexto)
     {
@@ -64,5 +64,32 @@ public class HUDController : MonoBehaviour
         Transform contenedor = contenedorVida.transform;
         GameObject.Destroy(contenedor.GetChild(contenedor.childCount - 1).gameObject);
     }
-      
+
+    private void OnEnable()
+    {
+        //suscripcion al evento
+        GameEvents.OnPause += Pausar;
+        GameEvents.OnResume += Reanudar;
+    }
+
+    private void OnDisable()
+    {
+        //desuscripcion al evento
+        GameEvents.OnPause -= Pausar;
+        GameEvents.OnResume -= Reanudar;
+
+    }
+
+    private void Pausar()
+    {
+        //ActualizarTextoHUD("PAUSADO");
+        miMenu.SetActive(true);
+    }
+    private void Reanudar()
+    {
+        //ActualizarTextoHUD(miTexto.text);
+        miMenu.SetActive(false);
+    }
+
+
 }

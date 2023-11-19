@@ -19,3 +19,4 @@ MonoBehaviour:
   openDoorSFX: {fileID: 8300000, guid: 758cb3909ba329b498145bec66890d0b, type: 3}
   saltarSFX: {fileID: 8300000, guid: 55c9f91b11dfee54e9d291f5946f3730, type: 3}
   recibirDanioSFX: {fileID: 8300000, guid: aa52841907f8f2b469564a63e53881c7, type: 3}
+  jugarSFX: {fileID: 8300000, guid: 3fe6e6f40de2f80449ef69014cabea90, type: 3}
