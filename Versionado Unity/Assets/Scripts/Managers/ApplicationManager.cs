@@ -52,4 +52,9 @@ public class ApplicationManager : MonoBehaviour
         }
     }
 
+    public void GoToStartScene()
+    {
+        SceneManager.LoadScene(0);
+        GameManager.Instance.ResetScore();
+    }
 }

@@ -35,8 +35,8 @@ public class Saltar : MonoBehaviour
         miAnimator = GetComponent<Animator>();
         miCircleCollider2D = GetComponent<CircleCollider2D>();
         saltoMask = LayerMask.GetMask("Piso", "Plataforma");
-        miAudioSource = GetComponent<AudioSource>(); 
-        jugador = GetComponent<Jugador>();  
+        jugador = GetComponent<Jugador>();
+        miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -61,7 +61,7 @@ public class Saltar : MonoBehaviour
         {
             saltando = true;
 
-            if(miAudioSource.isPlaying) { return;}
+            //if(miAudioSource.isPlaying) { return;}
             miAudioSource.PlayOneShot(jugador.PerfilJugador.SaltarSFX);
 
         }

@@ -9,5 +9,10 @@ public class MainUIController : MonoBehaviour
     {
        ApplicationManager.instance.GotoNextScene();
     }
+
+    public void CagarEscenaInicial()
+    {
+        ApplicationManager.instance.GoToStartScene();
+    }
         
 }

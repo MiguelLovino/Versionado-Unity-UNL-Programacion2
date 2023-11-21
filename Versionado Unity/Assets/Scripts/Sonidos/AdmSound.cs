@@ -19,6 +19,6 @@ public class AdmSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        miAudiosource.volume = PersistenceManager.Instance.GetFloat(PersistenceManager.KeyVolume);
     }
 }

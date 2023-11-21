@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Curar : MonoBehaviour
@@ -9,12 +10,16 @@ public class Curar : MonoBehaviour
     [SerializeField] int puntos = 1;
     [SerializeField] private AudioClip HealUpSFX;
 
+
     //referencia
     private AudioSource miAudioSource;
+    //private AdmSound admsound;
 
     private void OnEnable()
     {
-       miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
+
+       miAudioSource = gameObject.AddComponent<AudioSource>();
+      // admsound = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AdmSound>();
     }
 
     private void OnParticleCollision(GameObject other)

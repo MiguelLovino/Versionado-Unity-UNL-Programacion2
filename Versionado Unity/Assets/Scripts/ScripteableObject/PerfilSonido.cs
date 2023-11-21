@@ -31,5 +31,4 @@ public class PerfilSonido : ScriptableObject
     [SerializeField] private AudioClip jugarSFX;
     public AudioClip JugarSFX { get => jugarSFX; set => jugarSFX = value; }
 
-
 }

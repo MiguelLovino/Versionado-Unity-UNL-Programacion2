@@ -46,7 +46,7 @@ public class Jugador : MonoBehaviour
 
     private void OnEnable()
     {
-        miAudioSource = GetComponent<AudioSource>();    
+        miAudioSource = GameObject.Find("AdministradorSonidos").gameObject.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
